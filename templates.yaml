@@ -5,6 +5,6 @@ meals_remaining: "In der {{ canteen }} gibt es {{ meals }}."
 meals_remaining_none: "In der {{ canteen }} gibt es leider kein Essen."
 
 welcome: "Hallo! Was moechtest du wissen?"
-help: "hilfe"
+help: "Du kannst mich frage was es heute, morgen, oder an einem bestimmten Datum zu essen gibt."
 reprompt: "Was moechtest du wissen?"
 stop: "Bis bald!"
