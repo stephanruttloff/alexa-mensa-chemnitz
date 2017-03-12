@@ -1,0 +1,8 @@
+GetMenu Speiseplan
+GetMenu Essen
+GetMenu Was gibt es zu essen
+
+GetMenuDate Speiseplan {date}
+GetMenuDate Essen {date}
+GetMenuDate Was gibt es {date} zu essen
+GetMenuDate Was gibt es am {date} zu essen
