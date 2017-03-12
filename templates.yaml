@@ -1,9 +1,10 @@
-welcome: "Hallo! Was moechtest du wissen?"
-
 meals_none: "Am {{ date }} gibt es leider kein Essen."
 
 meals_first: "Am {{ date }} gibt es in der {{ canteen }} {{ meals }}."
 meals_remaining: "In der {{ canteen }} gibt es {{ meals }}."
 meals_remaining_none: "In der {{ canteen }} gibt es leider kein Essen."
 
-exit: "Bis bald!"
+welcome: "Hallo! Was moechtest du wissen?"
+help: "hilfe"
+reprompt: "Was moechtest du wissen?"
+stop: "Bis bald!"

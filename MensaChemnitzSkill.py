@@ -2,7 +2,7 @@ import logging
 import MensaApi
 
 from flask import Flask, render_template
-from flask_ask import Ask, statement, question, session
+from flask_ask import Ask, statement, question
 from datetime import datetime
 
 app = Flask(__name__)
@@ -13,11 +13,16 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 @ask.launch
 def launch():
   welcome_msg = render_template('welcome')
-  return question(welcome_msg)
+  return question(welcome_msg).reprompt(render_template('reprompt'))
+
+@ask.intent('AMAZON.HelpIntent')
+def help():
+  rendered = render_template('help')
+  return question(rendered).reprompt(render_template('reprompt'))
 
 @ask.intent('AMAZON.StopIntent')
 def stop():
-  rendered = render_template('exit')
+  rendered = render_template('stop')
   return statement(rendered)
 
 @ask.intent('GetMenu')
@@ -41,7 +46,7 @@ def respond(date, canteens):
   meals = [meal for canteen in canteens for meal in canteen.meals]
 
   if len(meals) == 0:
-    return statement(render_template('meals_none', date=renderDate(date)))
+    return statement("<speak>" + render_template('meals_none', date=renderDate(date)) + "</speak>")
   else:
     first_canteen = canteens.pop(0)
     remaining_canteens = canteens
