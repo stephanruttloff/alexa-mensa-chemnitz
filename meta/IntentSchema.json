@@ -1,9 +1,6 @@
 {
   "intents": [
     {
-      "intent": "GetMenu"
-    },
-    {
       "intent": "GetMenuDate",
       "slots": [
         {

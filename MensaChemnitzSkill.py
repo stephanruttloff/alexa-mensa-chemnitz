@@ -25,12 +25,7 @@ def stop():
   rendered = render_template('stop')
   return statement(rendered)
 
-@ask.intent('GetMenu')
-def getMeals():
-  date = datetime.now()
-  return getMealsDate(date)
-
-@ask.intent('GetMenuDate', convert={'date': 'date'})
+@ask.intent('GetMenuDate', convert={'date': 'date'}, default={'date': datetime.now()})
 def getMealsDate(date):
   date = datetime.combine(date, datetime.min.time())
   canteens = list(MensaApi.getCanteenMeals(date))
