@@ -1,4 +1,5 @@
 welcome: Hallo! Was moechtest du wissen?
 meals_today: In der {{ canteen }} gibt es heute {{ meals }}.
-meals_today_none: In der {{ canteen }} gibt es heute leider kein Essen.
+meals_today_none: Heute gibt es leider kein Essen.
+meals_today_none_canteen: In der {{ canteen }} gibt es heute leider kein Essen.
 exit: Bis bald!

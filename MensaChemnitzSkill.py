@@ -24,18 +24,23 @@ def stop():
 def getMeals():
   date = datetime.now()
   canteens = MensaApi.getCanteenMeals(date)
-  responses = []
-  for canteen in canteens:
-    if len(canteen.meals) == 0:
-      rendered = render_template('meals_today_none', canteen=canteen.name)
-      responses.append("<p>" + rendered + "</p>")
-    else:
-      meals_string = "<break strength='medium'/>oder<break strength='medium'/>".join([m.description for m in canteen.meals]).strip()
-      rendered = render_template('meals_today', canteen=canteen.name, meals=meals_string)
-      responses.append("<p>" + rendered + "</p>")
-  response = "".join(responses)
-  response = "<speak>" + response + "</speak>"
-  return statement(response)
+
+  total_meal_count = len([m.meals for c in canteens for m in c.meals])
+  if total_meal_count == 0:
+    return statement(render_template('meals_today_none'))
+  else:
+    responses = []
+    for canteen in canteens:
+      if len(canteen.meals) == 0:
+        rendered = render_template('meals_today_none_canteen', canteen=canteen.name)
+        responses.append("<p>" + rendered + "</p>")
+      else:
+        meals_string = "<break strength='medium'/>oder<break strength='medium'/>".join([m.description for m in canteen.meals]).strip()
+        rendered = render_template('meals_today', canteen=canteen.name, meals=meals_string)
+        responses.append("<p>" + rendered + "</p>")
+    response = "".join(responses)
+    response = "<speak>" + response + "</speak>"
+    return statement(response)
 
 if __name__ == '__main__':
   app.run(debug=True)
