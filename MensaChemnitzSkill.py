@@ -13,7 +13,7 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 @ask.launch
 def launch():
   welcome_msg = render_template('welcome')
-  return statement(welcome_msg)
+  return question(welcome_msg)
 
 @ask.intent('AMAZON.StopIntent')
 def stop():
