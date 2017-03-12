@@ -1,8 +1,12 @@
 GetMenu Speiseplan
 GetMenu Essen
 GetMenu Was gibt es zu essen
+GetMenu Was es zu essen gibt
 
 GetMenuDate Speiseplan {date}
+GetMenuDate Speiseplan für {date}
 GetMenuDate Essen {date}
 GetMenuDate Was gibt es {date} zu essen
 GetMenuDate Was gibt es am {date} zu essen
+GetMenuDate Was es {date} zu essen gibt
+GetMenuDate Was es am {date} zu essen gibt
