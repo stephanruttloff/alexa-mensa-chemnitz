@@ -24,18 +24,32 @@ class Meal(object):
             for rate in [] + api_response["pr"]:
                 if "@gruppe" in rate:
                     if rate["@gruppe"] == "S":
-                        self.rate_s = rate["#text"]
+                        if "#text" in rate:
+                            self.rate_s = rate["#text"]
+                        else:
+                            self.rate_s = "-1"
                     elif rate["@gruppe"] == "M":
-                        self.rate_m = rate["#text"]
+                        if "#text" in rate:
+                            self.rate_m = rate["#text"]
+                        else:
+                            self.rate_m = "-1"
                     elif rate["@gruppe"] == "G":
-                        self.rate_g = rate["#text"]
+                        if "#text" in rate:
+                            self.rate_g = rate["#text"]
+                        else:
+                            self.rate_g = "-1"
                     else:
-                        self.rate_s = rate["#text"]
-                        self.rate_m = rate["#text"]
-                        self.rate_g = rate["#text"]
+                        rate_value = "-1"
+                        if "#text" in rate:
+                            rate_value = rate["#text"]
+                        self.rate_s = rate_value
+                        self.rate_m = rate_value
+                        self.rate_g = rate_value
         else:
+            rate = "-1"
             # single rate
-            rate = api_response["pr"]["#text"]
+            if "#text" in api_response["pr"]:
+                rate = api_response["pr"]["#text"]
             self.rate_s = rate
             self.rate_m = rate
             self.rate_g = rate
