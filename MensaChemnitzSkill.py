@@ -1,4 +1,3 @@
-import logging
 import MensaApi
 
 from flask import Flask, render_template
