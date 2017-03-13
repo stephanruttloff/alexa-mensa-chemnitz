@@ -5,6 +5,8 @@ class CanteenSlotType(object):
 
     @staticmethod
     def getIds(name):
+        if name is None:
+            return []
         name = name.lower()
         ids = []
         if "strana" in name or "nationen" in name:
