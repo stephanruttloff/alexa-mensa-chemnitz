@@ -1,11 +1,15 @@
 {
   "intents": [
     {
-      "intent": "GetMenuDate",
+      "intent": "GetMeals",
       "slots": [
         {
           "name": "date",
           "type": "AMAZON.DATE"
+        },
+        {
+          "name": "canteen",
+          "type": "CANTEENS"
         }
       ]
     },

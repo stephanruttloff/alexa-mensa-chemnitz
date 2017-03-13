@@ -4,6 +4,7 @@ import MensaApi
 from flask import Flask, render_template
 from flask_ask import Ask, statement, question
 from datetime import datetime
+from CanteenSlotType import CanteenSlotType
 
 app = Flask(__name__)
 ask = Ask(app, "/")
@@ -29,12 +30,13 @@ def stop():
     return statement(rendered)
 
 
-@ask.intent('GetMenuDate',
+@ask.intent('GetMeals',
             convert={'date': 'date'},
             default={'date': datetime.now()})
-def getMealsDate(date):
+def getMealsDate(date, canteen):
+    canteen_ids = CanteenSlotType.getIds(canteen)
     date = datetime.combine(date, datetime.min.time())
-    canteens = list(MensaApi.getCanteenMeals(date))
+    canteens = list(MensaApi.getCanteenMeals(date, canteen_ids))
     return respond(date, canteens)
 
 
@@ -45,7 +47,6 @@ def renderMeals(canteen):
 
 def renderDate(date):
     delta = (date.date() - datetime.today().date()).days
-    print("day delta", delta)
     if delta == 0:
         return render_template('today')
     elif delta == 1:

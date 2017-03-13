@@ -1,7 +1,19 @@
-GetMenuDate Speiseplan {date}
-GetMenuDate Speiseplan für {date}
-GetMenuDate Essen {date}
-GetMenuDate Was gibt es {date} zu essen
-GetMenuDate Was gibt es am {date} zu essen
-GetMenuDate Was es {date} zu essen gibt
-GetMenuDate Was es am {date} zu essen gibt
+GetMeals Was gibt es {date}
+GetMeals Was gibt es am {date}
+GetMeals Was es {date} gibt
+GetMeals Was es am {date} gibt
+
+GetMeals Was gibt es {date} zu essen
+GetMeals Was gibt es am {date} zu essen
+GetMeals Was es {date} zu essen gibt
+GetMeals Was es am {date} zu essen gibt
+
+GetMeals Was gibt es {date} in der {canteen}
+GetMeals Was gibt es am {date} in der {canteen}
+GetMeals Was es {date} in der {canteen} gibt
+GetMeals Was es am {date} in der {canteen} gibt
+
+GetMeals Was gibt es {date} in der {canteen} zu essen
+GetMeals Was gibt es am {date} in der {canteen} zu essen
+GetMeals Was es {date} in der {canteen} zu essen gibt
+GetMeals Was es am {date} in der {canteen} zu essen gibt

@@ -4,11 +4,7 @@ from urllib.request import urlopen
 from string import Template
 from Canteen import Canteen
 from Meal import Meal
-
-ID_MENSA_REICHENHAIN = 1479835489
-ID_MENSA_STRANA = 773823070
-ID_CAFETERIA_REICHENHAIN = 7
-ID_CAFETERIA_STRANA = 6
+from Constants import *
 
 CANTEENS = [
     ID_MENSA_REICHENHAIN,
@@ -25,8 +21,11 @@ TEMPLATE_API_ENDPOINT =\
     "&tag=${day}"
 
 
-def getCanteenMeals(date):
-    for canteen_id in CANTEENS:
+def getCanteenMeals(date, ids):
+    canteens = ids
+    if len(ids) == 0:
+        canteens = CANTEENS
+    for canteen_id in canteens:
         url = Template(TEMPLATE_API_ENDPOINT).substitute({
             'mensa_id': "%d" % canteen_id,
             'year': "%d" % date.year,
