@@ -9,8 +9,6 @@ from CanteenSlotType import CanteenSlotType
 app = Flask(__name__)
 ask = Ask(app, "/")
 
-logging.getLogger("flask_ask").setLevel(logging.DEBUG)
-
 
 @ask.launch
 def launch():
@@ -69,7 +67,6 @@ def respond(date, canteens):
         remaining_rendered = []
 
         for canteen in remaining_canteens:
-            print("remaining", canteen.name)
             if len(canteen.meals) == 0:
                 rendered = render_template(
                     'meals_remaining_none',
@@ -94,4 +91,4 @@ def respond(date, canteens):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
