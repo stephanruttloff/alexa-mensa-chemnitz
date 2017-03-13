@@ -1,6 +1,6 @@
-meals_none: "Am {{ date }} gibt es leider kein Essen."
+meals_none: "{{ date }} gibt es leider kein Essen."
 
-meals_first: "Am {{ date }} gibt es in der {{ canteen }} {{ meals }}."
+meals_first: "{{ date }} gibt es in der {{ canteen }} {{ meals }}."
 meals_remaining: "In der {{ canteen }} gibt es {{ meals }}."
 meals_remaining_none: "In der {{ canteen }} gibt es leider kein Essen."
 
@@ -8,3 +8,7 @@ welcome: "Hallo! Was moechtest du wissen?"
 help: "Du kannst mich fragen was es heute, morgen, oder an einem bestimmten Datum zu essen gibt."
 reprompt: "Was moechtest du wissen?"
 stop: "Bis bald!"
+
+today: "heute"
+tomorrow: "morgen"
+date: "am <say-as interpret-as='date'>{{ date }}</say-as>"

@@ -44,9 +44,14 @@ def renderMeals(canteen):
 
 
 def renderDate(date):
-    return "<say-as interpret-as='date'>" +\
-        date.strftime("????%m%d") +\
-        "</say-as>"
+    delta = (date.date() - datetime.today().date()).days
+    print("day delta", delta)
+    if delta == 0:
+        return render_template('today')
+    elif delta == 1:
+        return render_template('tomorrow')
+    else:
+        return render_template('date', date=date.strftime("????%m%d"))
 
 
 def respond(date, canteens):
@@ -65,13 +70,11 @@ def respond(date, canteens):
         for canteen in remaining_canteens:
             print("remaining", canteen.name)
             if len(canteen.meals) == 0:
-                print("none")
                 rendered = render_template(
                     'meals_remaining_none',
                     canteen=canteen.name)
                 remaining_rendered.append("<p>" + rendered + "</p>")
             else:
-                print("not none")
                 meals_string = renderMeals(canteen)
                 rendered = render_template(
                     'meals_remaining',
